@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "esbuild src/__test__/merge.test.ts --bundle --platform=node --format=esm --outfile=node_modules/.cache/merge.test.mjs && node node_modules/.cache/merge.test.mjs && esbuild src/__test__/e2e.test.ts --bundle --platform=node --format=esm --outfile=node_modules/.cache/e2e.test.mjs && node node_modules/.cache/e2e.test.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^6.0.1",
@@ -19,5 +20,7 @@
     "echarts": "^5.6.0",
     "leaflet": "^1.9.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
 }
